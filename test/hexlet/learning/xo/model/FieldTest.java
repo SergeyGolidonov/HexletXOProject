@@ -1,6 +1,5 @@
 package hexlet.learning.xo.model;
 
-import hexlet.learning.xo.model.exceptions.AlreadyOccupiedException;
 import hexlet.learning.xo.model.exceptions.InvalidPointException;
 import org.junit.Test;
 
@@ -11,14 +10,14 @@ import static org.junit.Assert.*;
 public class FieldTest {
 
     @Test
-    public void getSize() {
+    public void testGetSize() throws Exception {
         final Field field = new Field(3);
 
         assertEquals(3, field.getSize());
     }
 
     @Test
-    public void setFigure() throws Exception {
+    public void testSetFigure() throws Exception {
         final Field field = new Field(3);
         final Point inputPoint = new Point(0, 0);
         final Figure inputFigure = Figure.O;
@@ -47,9 +46,7 @@ public class FieldTest {
         try {
             field.getFigure(inputPoint);
             fail();
-        } catch (final InvalidPointException e) {
-
-        }
+        } catch (final InvalidPointException e) {}
     }
 
     @Test
@@ -60,9 +57,7 @@ public class FieldTest {
         try {
             field.getFigure(inputPoint);
             fail();
-        } catch (final InvalidPointException e) {
-
-        }
+        } catch (final InvalidPointException e) {}
     }
 
     @Test
@@ -73,21 +68,18 @@ public class FieldTest {
         try {
             field.getFigure(inputPoint);
             fail();
-        } catch (final InvalidPointException e) {
-
-        }
+        } catch (final InvalidPointException e) {}
     }
 
     @Test
     public void testGetFigureWhenYIsMoreThenSize() throws Exception {
-        final Field field = new Field(3 );
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0, field.getSize() + 1);
 
         try {
             field.getFigure(inputPoint);
             fail();
-        } catch (final InvalidPointException e) {
-
-        }
+        } catch (final InvalidPointException e) {}
     }
+
 }

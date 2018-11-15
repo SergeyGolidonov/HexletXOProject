@@ -6,19 +6,19 @@ import java.awt.*;
 
 public class Field {
 
-    private static final int MINIMUM_COORDINATE = 0;
+    private static final int MIN_COORDINATE = 0;
 
     private final Figure[][] field;
 
-    private final int fieldSize;
+    private final int filedSize;
 
-    public Field(final int fieldSize) {
-        this.fieldSize = fieldSize;
-        field = new Figure[fieldSize][fieldSize];
+    public Field(final int filedSize) {
+        this.filedSize = filedSize;
+        field = new Figure[filedSize][filedSize];
     }
 
-    public int getSize(){
-        return fieldSize;
+    public int getSize() {
+        return filedSize;
     }
 
     public Figure getFigure(final Point point) throws InvalidPointException {
@@ -32,7 +32,6 @@ public class Field {
         if (!checkPoint(point)) {
             throw new InvalidPointException();
         }
-
         field[point.x][point.y] = figure;
     }
 
@@ -41,7 +40,6 @@ public class Field {
     }
 
     private boolean checkCoordinate(final int coordinate, final int maxCoordinate) {
-        return coordinate >= MINIMUM_COORDINATE && coordinate < maxCoordinate;
+        return coordinate >= MIN_COORDINATE && coordinate < maxCoordinate;
     }
-
 }
